@@ -1,0 +1,43 @@
+\chapter{Primera y segunda forma fundamental}
+
+\section{¿?}
+La primera forma fundamental da la geometría de la superficie. Podemos por
+ejemplo utilizarla para calcular la longitud de curvas en $S$. Sea
+$\alpha\colon I\subseteq\R\to S\subseteq\R^3$ una curva en $S$. Entonces
+\[
+	L(\alpha)=\int_I\sqrt{I_p(\alpha'(t))}dt.
+\]
+
+\index{Dominio}
+También podemos utilizar la primera forma fundamental para el cálculo de áreas.
+Recordemos que un \textbf{dominio} en una superficie $S$ es un abierto conexo
+$D\subseteq S$ tal que $\partial D$ es la imagen del círculo $S^1$ por un
+homeomorfismo diferenciable a trozos. Una \textbf{región} $R$ es la unión de un
+dominio $D$ junto con su frontera $\partial D$. Definimos entonces
+el área de un dominio $R$ como
+\[
+	\text{área}(R)=\int_Q\|X_u\times X_v\|dudv,
+\]
+donde $Q=X^{-1}(R)$. Esta definición no depende de la parametrización $X$ pues
+si $Y\colon V\to Y(V)$ es otra parametrización tal que $R\subseteq X(U)\cap Y(V)$, 
+la fórmula de cambio de variables implica que
+\[
+	\int_{X^{-1}(U)}\|X_u\times X_v\|dudv=\int_{Y^{-1}(R)}\|Y_u\times Y_v\|dudv.
+\]
+
+Observemos que como
+\[
+	\|X_u\times X_v\|=\sqrt{\langle X_u,X_u\rangle\langle X_v,X_v\rangle-\langle X_u,X_v\rangle^2}=\sqrt{EG-F^2},
+\]
+se tiene la siguiente fórmula:
+\[
+	\text{área}(R)=\int_{X^{-1}(U)}\sqrt{EG-F^2}dudv.
+\]
+
+
+
+
+\section{Superficies mínimas}
+
+
+

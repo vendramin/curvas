@@ -1,0 +1,173 @@
+\begin{sol}{xca:L_t}
+	Todo punto de $L_t$ es de la forma $(x(t),t(x(t)+1)$. Para calcular
+	$\alpha(t)$ escribimos 
+	$1=x(t)^2+y(t)^2=x(t)^2+t^2(x(t)+1)^2$ 
+	como
+	\[
+		0=(1+t)^2x(t)^2+2t^2x(t)+(t^2-1).
+	\]
+	Esta ecuación cuadrática tiene dos soluciones:
+	\[
+		x(t)=-1,\quad
+		x(t)=\frac{1-t^2}{1+t^2}.
+	\]
+	Luego  
+	\[
+		\alpha\colon\R\to\R^2,\quad
+		\alpha(t)=\left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right)
+	\]
+	es una curva diferenciable cuya imagen es $C\setminus\{(-1,0)\}$. 
+\end{sol}
+
+\begin{sol}{xca:minima_distancia}
+	Sea $v$ un vector cualquiera tal que $\|v\|=1$. Como
+	$\frac{d}{dt}\langle\alpha(t),v\rangle=\langle\alpha'(t),v\rangle$, 
+	\[
+		\langle\alpha(b)-\alpha(a),v\rangle
+		=\int_a^b\langle\alpha'(t),v\rangle dt,
+	\]
+	por el fundamental del cálculo. Por la desigualdad de Cauchy-Schwarz, 
+	\[	
+		-\|\alpha'(t)\|\leq \langle\alpha(b)-\alpha(a),v\rangle\leq\|\alpha'(t)\|.
+	\]
+	Luego 
+	\[
+		\langle\alpha(b)-\alpha(a),v\rangle
+		=\int_a^b\langle\alpha'(t),v\rangle dt\leq\int_a^b\|\alpha'(t)\|dt=L_a^b(\alpha).
+	\]
+	Si 
+	$v=\frac{\alpha(b)-\alpha(a)}{\|\alpha(b)-\alpha(a)\|}$, entonces 
+	$\|\alpha(b)-\alpha(a)\|\leq L_a^b(\alpha)$.
+\end{sol}
+
+
+%\begin{sol}{xca:isoperimetrica}
+%	Si $\text{área}(R)=L^2/4\pi$, entonces tenemos una igualdad en la
+%	fórmula~\ref{eq:isoperimetrica2}. Como entonces se tiene una igualdad en la
+%	desigualdad de las medias aritmética y geométrica, se concluye que $\text{área}(R)=\pi
+%	r^2$ y luego que $L=2\pi r$. Tenemos entonces una igualdad en la fórmula~\eqref{eq:isopetrimetrica1} y
+%	esto implica que 
+%	\[
+%		(x(s),z(s))=\lambda (y'(s),-x'(s))
+%	\]
+%	para algún $\lambda\in\R$. Como entonces $x(s)^2=\lambda^2y'(s)^2$ y $z(s)^2=\lambda^2 x'(s)^2$, se concluye que $\lambda=\pm r$ pues 
+%	\[
+%		r^2=x(s)^2+z(s)^2=\lambda^2(x'(s)^2+y'(s)^2)=\lambda^2.
+%	\]
+%	En particular, $x(s)=\pm r y'(s)$. Si rehacemos la demostración pero esta vez parametrizando el círculo 
+%	con $(x_1(s),y(s))$ obtenemos que $y(s)=\pm r x'(s)$. Luego $r^2=x(s)^2+y(s)^2$.
+%\end{sol}
+
+\begin{sol}{xca:t=0}
+	Un cálculo directo muestra que
+	\[
+		T(t)=\alpha'(t)=\left(\frac{1}{\sqrt{3}}(-\sin t)+\frac{1}{\sqrt{2}}\cos t,\frac{1}{\sqrt{3}}(-\sin t),\frac{1}{\sqrt{3}}(-\sin t)-\frac{1}{\sqrt{2}}\cos t\right)
+	\]
+	y luego $\alpha$ está parametrizada por longitud de arco pues
+	$|\alpha'(t)|=1$ para todo $t$. Calculamos 
+	\[
+		T'(t)=\left(\frac{1}{\sqrt{3}}(-\cos t)-\frac{1}{\sqrt{2}}\sin t,\frac{1}{\sqrt{3}}(-\cos t),\frac{1}{\sqrt{3}}(-\cos t)+\frac{1}{\sqrt{2}}\sin t\right)
+	\]
+	y luego $\kappa(t)=|T'(t)|=1$ y $N(t)=T'(t)$. Como $B(t)=T(t)\times N(t)$, al derivar, tenemos que
+	\[
+		B'(t)=T'(t)\times N(t)+T(t)\times N'(t)=T'(t)\times T'(t)+T(t)\times T''(t)=T(t)\times T''(t).
+	\]
+	Como además $T''(t)=-T(t)$, se tiene que $B'(t)=0$ y luego $\tau(t)=0$ pues $\tau(t)N(t)=B'(t)=0$.
+\end{sol}
+
+\begin{sol}{xca:curvatura}
+	Si $\alpha$ está parametrizada por longitud de arco, entonces $T(s)=\alpha'(s)$ y $|T(s)|=1$ para todo $s$. 
+	Como además $T'(s)=\kappa(s)N(s)$, entonces
+	\[
+		\|\alpha'(s)\times\alpha''(s)\|=\|T(s)\times\kappa(s)N(s)\|=\kappa(s)\|T(s)\times N(s)\|=\kappa(s)\|B(s)\|=\kappa(s).
+	\]
+
+	Sea $\beta$ una reparametrización de $\alpha$ por longitud de
+	arco, es decir $\alpha(t)=\beta(s(t))$, donde $s(t)$ es la función de
+	longitud de arco. Al derivar:
+	\begin{equation}
+		\label{eq:derivadas}
+		\alpha'(t)=\beta'(s(t))s'(t),\quad
+		\alpha''(t)=\beta''(s(t))s'(t)^2+\beta'(s(t))s''(t).
+	\end{equation}
+	Entonces
+	\begin{align*}
+		\alpha'(t)\times\alpha''(t)
+		&=s'(t)^3\beta'(s(t))\times\beta''(s(t))+s'(t)s''(t)\beta'(s(t))\times\beta'(s(t))\\
+		&=s'(t)^3\beta'(s(t))\times\beta''(s(t))\\
+		&=s'(t)^3\kappa(s(t))B(s(t)).
+	\end{align*}
+	De aquí se obtiene la fórmula para la curvatura ya que
+	\[
+	\|\alpha'(t)\|=\|T(s(t))\||s'(t)|=|s'(t)|.
+	\]
+\end{sol}
+
+\begin{sol}{xca:torsion}
+	Sabemos que $\alpha'(s)=T(s)$ y que $\alpha''(s)=T'(s)=\kappa(s)N(s)$. 
+	Calculamos entonces
+	\[
+		\alpha'(s)\times\alpha''(s)=T(s)\times \kappa(s)N(s)=\kappa(s)B(s).
+	\]
+	Por otro lado, si derivamos $T'(s)=\kappa(s)N(s)$ y usamos las fórmulas de
+	Frenet obtenemos
+	\[
+		\alpha'''(s)=\kappa'(s)N(s)+\kappa(s)N'(s)=\kappa'(s)N(s)+\kappa(s)(-\kappa(s)T(s)-\tau(s)B(s)).
+	\]
+	Luego 
+	\begin{align*}
+		\langle \alpha'(s)\times\alpha''(s),\alpha'''(s)\rangle
+		&=\langle \kappa(s)B(s),\kappa'(s)N(s)-\kappa(s)^2T(s)-\kappa(s)\tau(s)B(s)\rangle\\
+		&=-\kappa(s)^2\tau(s).
+	\end{align*}
+	Como además $|\alpha'(s)\times\alpha''(s)|^2=\kappa(s)^2$, se concluye la fórmula buscada. 
+
+	Supongamos ahora que $\alpha$ no está parametrizada por longitud de arco.
+	Como $\alpha$ es regular, podemos paramatrizarla por longitud de arco,
+	digamos $\alpha(t)=\beta(s(t))$, donde $s(t)$ es la función de longitud de
+	arco.  Calculamos:
+	\begin{align*}
+		&\alpha'(t) = \beta'(s(t))s'(t),\\
+		&\alpha''(t) = \beta''(s(t))s'(t)^2+\beta'(s(t))s''(t),\\
+		&\alpha'''(t)=\beta'''(s(t))s'(t)^3+3\beta''(s(t))s'(t)s''(t)+\beta'(s(t))s'''(t).
+	\end{align*}
+	Entonces
+	\[
+		\alpha'(t)\times\alpha''(t)=s'(t)^3\beta'(s(t))\times\beta''(s(t))
+	\]
+	y luego
+	\begin{align*}
+		\langle \alpha'''(t),\alpha'(t)\times\alpha''(t)\rangle &= 
+		\langle\beta'''(s(t))s'(t)^3,s'(t)^3\beta'(s(t))\times\beta''(s(t))\rangle\\
+		&=s'(t)^6\langle\beta'''(s(t)),\beta'(s(t))\times\beta''(s(t))\rangle\\
+		&=-s'(6)^6\kappa(s(t))^2\tau(s(t)).
+	\end{align*}
+\end{sol}
+
+\begin{sol}{xca:(t,t2,t3)}
+	No es posible encontrar explícitamente una parametrización de $\alpha$ por
+	longitud de arco, por lo que es esencial usar los ejercicios anteriores. Calculamos:
+	\begin{align*}
+		&\alpha'(t)=(1,2t,3t^2), && \alpha''(t)=(0,2,6t), && \alpha'''(t)=(0,0,6).
+	\end{align*}
+	Calculamos entonces
+	$\alpha'(t)\times\alpha''(t)=(6t^2,-6t,2)$ y luego 
+	\begin{align*}
+		&\kappa(t)=\frac{\|\alpha'(t)\times\alpha''(t)\|}{\|\alpha'(t)\|^3}=\frac{2\sqrt{9t^4+9t^2+1}}{(1+4t^2+4t^4)^{3/2}},\\
+		&\tau(t)=\frac{12}{36t^4+36t^2+4}=\frac{3}{1+9t^4+9t^2}.
+	\end{align*}
+\end{sol}
+
+\begin{sol}{xca:y=f(x)}
+	Como $\alpha$ es una curva plana sabemos que tiene torsión nula. Calculemos
+	la curvatura.  Un cálculo directo muestra que 
+	\begin{align*}
+	&\alpha'(t)=(1,f'(t),0), 
+	&&\alpha''(t)=(0,f''(t),0),
+	&&\alpha'(t)\times\alpha''(t)=(0,0,f''(t)).
+	\end{align*}
+	Luego gracias al ejercicio~\ref{xca:curvatura}, 
+	\[
+		\kappa(t)=\frac{|f''(t)|}{(1+f'(t)^2)^{3/2}}.
+	\]
+\end{sol}
